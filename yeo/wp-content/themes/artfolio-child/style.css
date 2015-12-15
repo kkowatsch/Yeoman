@@ -1,0 +1,30 @@
+/*
+Theme Name: artfolio-child
+Theme URI:  http://www.blairyeomans.com/themes/artfolio-child
+Description: Artfolio Child Theme
+Version: 1.0
+Author: Kayleigh Kowatsch
+Author URI:  http://www.blairyeomans.com
+Template: artfolio
+*/
+
+/* CSS for the Contact form */
+@import url("../artfolio/style.css");
+
+.error{
+    padding: 5px 9px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 3px;
+  }
+ 
+  .success{
+    padding: 5px 9px;
+    border: 1px solid green;
+    color: green;
+    border-radius: 3px;
+  }
+ 
+  form span{
+    color: red;
+  }

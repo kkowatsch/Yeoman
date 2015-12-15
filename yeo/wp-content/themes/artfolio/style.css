@@ -1,8 +1,80 @@
 /*
 Theme Name: artfolio
 Theme URI:  http://www.blairyeomans.com/themes/artfolio
-Description: Artfolio is a one-page portfolio created to showcase art.
+Description: Artfolio is a one-page portfolio created to showcase the art of Blair Yeomans.
 Version: 1.0
 Author: Kayleigh Kowatsch
 Author URI:  http://www.blairyeomans.com
 */
+
+@import url('bootstrap/css/bootstrap.css'); 
+@import url('bootstrap/css/bootstrap-theme.css'); 
+body { 
+     padding-top: 70px; 
+     padding-bottom: 40px; 
+}
+
+.container{
+    padding:4px 7px 2px 4px;
+}
+
+.col-md-12{
+    margin:20px 50px;
+}
+
+.navbar{
+        background-color:#00ff21;
+}
+/*This section is dedicated to the navbar*/
+.navbar-inverse .navbar-brand {
+  color: #9d9d9d;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #9d9d9d;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+}
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus,
+.navbar-inverse .nav .current_page_item a,
+.navbar-inverse .nav .current_page_item a:hover,
+.navbar-inverse .nav .current_page_item a:focus,
+.navbar-inverse .nav .current_page_parent a,
+.navbar-inverse .nav .current_page_parent a:hover,
+.navbar-inverse .nav .current_page_parent a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+.navbar-inverse .navbar-nav > .disabled > a,
+.navbar-inverse .navbar-nav > .disabled > a:hover,
+.navbar-inverse .navbar-nav > .disabled > a:focus {
+  color: #444;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: #333;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #333;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #101010;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
