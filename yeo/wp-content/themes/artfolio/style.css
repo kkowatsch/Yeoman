@@ -8,12 +8,6 @@ Author URI:  http://www.blairyeomans.com
 */
 
 @import url('bootstrap/css/bootstrap.css'); 
-@import url('bootstrap/css/bootstrap-theme.css'); 
-body { 
-     padding-top: 70px; 
-     padding-bottom: 40px; 
-}
-
 .container{
     padding:4px 7px 2px 4px;
 }
@@ -22,59 +16,56 @@ body {
     margin:20px 50px;
 }
 
-.navbar{
-        background-color:#00ff21;
+/*NAVBAR*/
+.navbar-default {
+    background-image: -webkit-linear-gradient(top, #fff 0%, #f8f8f8 100%);
+    background-image:      -o-linear-gradient(top, #fff 0%, #f8f8f8 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f8f8f8));
+    background-image:         linear-gradient(to bottom, #fff 0%, #f8f8f8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    background-repeat: repeat-x;
+    border:none;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
 }
-/*This section is dedicated to the navbar*/
-.navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+
+/* CONTENT AREA */
+.content-area {
+	background: #fff;
 }
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #fff;
+
+/* GALLERY */
+#gallery{
+    color: #fff;
+    background: #03060B;
+    padding: 2em 0;
 }
-.navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+				
+/* STATEMENT */ 
+#statement {
+    color: #fff;
+    background: #192234;
+    padding: 2em 0;
 }
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+
+/* BIOGRAPHY */
+#bio {
+    padding: 4em 0;
+    background: hsl(0, 0%, 90%);
 }
-.navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover,
-.navbar-inverse .nav .active > a:focus,
-.navbar-inverse .nav .current_page_item a,
-.navbar-inverse .nav .current_page_item a:hover,
-.navbar-inverse .nav .current_page_item a:focus,
-.navbar-inverse .nav .current_page_parent a,
-.navbar-inverse .nav .current_page_parent a:hover,
-.navbar-inverse .nav .current_page_parent a:focus {
-  color: #fff;
-  background-color: #080808;
+
+/* CONTACT */
+#contact {
+    padding: 4em 0;
 }
-.navbar-inverse .navbar-nav > .disabled > a,
-.navbar-inverse .navbar-nav > .disabled > a:hover,
-.navbar-inverse .navbar-nav > .disabled > a:focus {
-  color: #444;
-  background-color: transparent;
-}
-.navbar-inverse .navbar-toggle {
-  border-color: #333;
-}
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-  background-color: #333;
-}
-.navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #fff;
-}
-.navbar-inverse .navbar-collapse,
-.navbar-inverse .navbar-form {
-  border-color: #101010;
-}
-.navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:hover,
-.navbar-inverse .navbar-nav > .open > a:focus {
-  color: #fff;
-  background-color: #080808;
+
+/* MEET THE DOCTOR */ 
+#meet {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+	color: #fff;
+    color: hsl(0, 0%, 100%);
+	background: #00497A;
+    background: hsl(204, 100%, 24%);
 }
