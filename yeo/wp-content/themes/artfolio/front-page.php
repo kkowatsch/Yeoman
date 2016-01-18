@@ -10,7 +10,6 @@ get_header(); ?>
 	<div id="primary" class="content area">
 
 		<main id="main" class="site-main" role="main">
-
 		<!--This is the section for the gallery of paintings (for now there is one genre but later there may be sub-genres under the genre)-->	
 
 			<section id="gallery">
@@ -20,7 +19,7 @@ get_header(); ?>
 							if ($query -> have_posts()){
 								while ($query -> have_posts()){
 									$query -> the_post(); 
-									echo '<div class="entry-content"';
+									echo '<div class="entry-content">';
 									the_content();
 									echo '</div>';
 								}  
@@ -40,7 +39,26 @@ get_header(); ?>
 							if ($query -> have_posts()){
 								while ($query -> have_posts()){
 									$query -> the_post(); 
-									echo '<div class="entry-content"';
+									echo '<div class="entry-content">';
+									the_content();
+									echo '</div>';
+								}  
+							}
+							
+						wp_reset_postdata();
+					?>	
+				</div>
+			</section>
+			
+		<!--This is the section for the artist statement-->
+			<section id="action">
+				<div class="container">
+					<?php
+						$query = new WP_Query( array( 'pagename' => 'actionstory' ) );
+							if ($query -> have_posts()){
+								while ($query -> have_posts()){
+									$query -> the_post(); 
+									echo '<div class="entry-content">';
 									the_content();
 									echo '</div>';
 								}  
@@ -59,7 +77,7 @@ get_header(); ?>
 							if ($query -> have_posts()){
 								while ($query -> have_posts()){
 									$query -> the_post(); 
-									echo '<div class="entry-content"';
+									echo '<div class="entry-content">';
 									the_content();
 									echo '</div>';
 								}  
@@ -74,11 +92,11 @@ get_header(); ?>
 			<section id="contact">
 				<div class="container">
 					<?php
-						$query = new WP_Query( array( 'pagename' => 'contact' ) );
+						$query = new WP_Query( array( 'pagename' => 'contact-us' ) );
 							if ($query -> have_posts()){
 								while ($query -> have_posts()){
 									$query -> the_post(); 
-									echo '<div class="entry-content"';
+									echo '<div class="entry-content">';
 									the_content();
 									echo '</div>';
 								}  
@@ -86,6 +104,7 @@ get_header(); ?>
 							
 						wp_reset_postdata();
 					?>	
+					<?php include 'page-contact-us.php'; ?>
 				</div><!-- .indent -->
 			</section><!-- #contact -->
 		</main><!-- #main -->

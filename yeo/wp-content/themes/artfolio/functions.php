@@ -11,8 +11,7 @@ if ( ! function_exists( 'artfolio_setup' ) ) :
 function artfolio_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'artfolio' ),
-                'social' => __( 'Social Menu', 'artfolio'),
+		'primary' => __( 'Primary Menu', 'artfolio' )
 	) );
 
 	// Enable support for Post Formats.
@@ -32,7 +31,7 @@ function artfolio_setup() {
                 'caption',
 	) );
 }
-endif; // simone_setup
+endif; // artfolio_setup
 add_action( 'after_setup_theme', 'artfolio_setup' );
 function artfolio_scripts_with_jquery() {
 	if( is_front_page() ) {
@@ -43,11 +42,6 @@ function artfolio_scripts_with_jquery() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'artfolio_scripts_with_jquery' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -69,3 +63,8 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 ?>
+
+
+
+<?php include (TEMPLATEPATH . '/myGallery/gallery_functions_include.php'); ?>
+
