@@ -11,7 +11,8 @@
 	$message_sent    = "Thanks! Your message has been sent.";
  
 	//user posted variables
-	$name = $_POST['message_name'];
+	$name = $_GET['message_name'];
+        
 	$email = $_POST['message_email'];
 	$message = $_POST['message_text'];
 	$human = $_POST['message_human'];

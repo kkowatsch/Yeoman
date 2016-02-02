@@ -4614,15 +4614,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #fff;
   background-color: transparent;
 }
-.navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover,
-.navbar-inverse .nav .active > a:focus,
-.navbar-inverse .nav .current_page_item a,
-.navbar-inverse .nav .current_page_item a:hover,
-.navbar-inverse .nav .current_page_item a:focus,
-.navbar-inverse .nav .current_page_parent a,
-.navbar-inverse .nav .current_page_parent a:hover,
-.navbar-inverse .nav .current_page_parent a:focus {
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
   color: #fff;
   background-color: #080808;
 }
