@@ -25,7 +25,7 @@ if (!function_exists('artfolio_setup')) :
          */
         load_theme_textdomain('artfolio', get_template_directory() . '/languages');
 
-        // Add default posts and comments RSS feed links to head.
+// Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
 
         /*
@@ -45,7 +45,7 @@ if (!function_exists('artfolio_setup')) :
         set_post_thumbnail_size(828, 360, true);
         add_image_size('artfolio-small-thumb', 300, 150, true);
 
-        // This theme uses wp_nav_menu() in one location.
+// This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'primary' => esc_html__('Primary', 'artfolio'),
         ));
@@ -66,7 +66,7 @@ if (!function_exists('artfolio_setup')) :
             'aside', 'image', 'video', 'quote', 'link',
         ));
 
-        // Set up the WordPress core custom background feature.
+// Set up the WordPress core custom background feature.
         add_theme_support('custom-background', apply_filters('artfolio_custom_background_args', array(
             'default-color' => 'ffffff', 'default-image' => '',
         )));
@@ -112,17 +112,17 @@ add_action('after_setup_theme', 'artfolio_content_width', 0);
 function artfolio_scripts() {
     wp_enqueue_style('artfolio-style', get_stylesheet_uri());
 
-    //Add Google Fonts: Amaranth and Fira Sans
-    //wp_enqueue_script('artfolio-google-fonts','https://fonts.googleapis.com/css?family=Amaranth:400,700|Fira+Sans:400,500');
+//Add Google Fonts: Amaranth and Fira Sans
+//wp_enqueue_script('artfolio-google-fonts','https://fonts.googleapis.com/css?family=Amaranth:400,700|Fira+Sans:400,500');
     wp_enqueue_style('artfolio-local-fonts', get_template_directory_uri() . '/fonts/custom-fonts.css');
 
-    //Add Font Awesome icons (http://fontawesome.io)
+//Add Font Awesome icons (http://fontawesome.io)
     wp_enqueue_style('artfolio-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
-    
+
     wp_enqueue_script('artfolio-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 
     wp_enqueue_script('artfolio-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '20150130', true);
-    
+
     wp_enqueue_script('artfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true);
     wp_localize_script('artfolio-navigation', 'screenReaderText', array(
         'expand' => '<span class="screen-reader-text">' . __('expand child menu', 'artfolio') . '</span>',
@@ -147,16 +147,38 @@ function artfolio_scripts_with_bootstrap() {
 
 function artfolio_scripts_with_jquery() {
     if (is_front_page()) {
-        // Register the script like this for a theme:
+// Register the script like this for a theme:
         wp_register_script('custom-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array('jquery'));
-        // For either a plugin or a theme, you can then enqueue the script:
+// For either a plugin or a theme, you can then enqueue the script:
         wp_enqueue_script('custom-script');
+        wp_enqueue_script('parallax', get_template_directory_uri() . '/js/jquery.parallax-1.1.3.js', array(), '1.1.3', true);
+        wp_enqueue_script('nicescroll', get_template_directory_uri() . '/js/jquery.nicescroll.min.js', array(), '3.5.1', true);
     }
 }
 
 add_action('wp_enqueue_scripts', 'artfolio_scripts_with_bootstrap');
 add_action('wp_enqueue_scripts', 'artfolio_scripts');
 add_action('wp_enqueue_scripts', 'artfolio_scripts_with_jquery');
+
+function custom_post_type() {
+    $labels = array(
+        'name' => _x('Parallax', 'general name'), 'singular_name' => _x('Page', 'singular name'),
+        'add_new' => _x('Add New', 'parallax'), 'add_new_item' => __('Add New Page'), 'edit_item' => __('Edit Page'),
+        'new_item' => __('New Page'), 'all_items' => __('All Pages'), 'view_item' => __('View Page'),
+        'search_items' => __('Search Pages'), 'not_found' => __('No pages found'),
+        'not_found_in_trash' => __('No pages found in the Trash'), 'parent_item_colon' => '', 'menu_name' => 'Parallax',
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => null,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments', 'page-attributes'),
+        'has_archive' => true,
+    );
+    register_post_type('parallax', $args);
+}
+
+add_action('init', 'custom_post_type');
 
 /**
  * Implement the Custom Header feature.

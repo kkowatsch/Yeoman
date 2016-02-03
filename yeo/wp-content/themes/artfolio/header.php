@@ -46,24 +46,24 @@
                                     <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
                                 <?php endif; ?>
                             </div><!-- .site-branding -->
-                                                    <nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-controls="primary-menu" aria-expanded="false" aria-hidden="true">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
-                            </div><!--.navbar-header-->
-                            <?php
-                            if (is_front_page()) {
-                                wp_nav_menu(array('menu' => 'Front Page Menu'));
-                            } else {
-                                wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu'));
-                            }
-                            ?>
-                        </nav> <!--#site-navigation-->
+                            <nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-controls="primary-menu" aria-expanded="false" aria-hidden="true">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                                </div><!--.navbar-header-->
+                                <?php
+                                if (is_front_page()) {
+                                    wp_nav_menu(array('menu' => 'Front Page Menu'));
+                                } else {
+                                    wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu'));
+                                }
+                                ?>
+                            </nav> <!--#site-navigation-->
                         </header><!-- #masthead -->
 
 

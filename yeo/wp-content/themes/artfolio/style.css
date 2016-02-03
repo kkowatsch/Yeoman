@@ -59,6 +59,13 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust:     100%;
 }
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 article,
 aside,
 details,
@@ -313,11 +320,6 @@ em,
 i {
     font-style: italic;
 }
-
-blockquote {
-    margin: 0 1.5em;
-}
-
 address {
     margin: 0 0 1.5em;
 }
@@ -384,10 +386,11 @@ q {
 }
 
 blockquote{
-    font-size: 1.5em;
-    line-height: 1.4em;
-    margin: 1.5em 0 1.5em 2em;
-    position: relative;
+    font-weight: normal;
+    font-size: 1.2em;
+    text-align: left;
+    margin: 20px auto;
+    border: none;
 }
 blockquote::before{
     font-family: "FontAwesome";
@@ -507,6 +510,8 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+#site-navigation {float: right; margin-top: 20px; }
+
 .main-navigation.sticky-header{
     position: fixed;
     width: 100%;
@@ -728,7 +733,11 @@ a:active {
 --------------------------------------------------------------*/
 header{
     width: 100%;
+    height: 80px;
+    position: fixed;
+    margin-top: 30px;
 }
+
 .site-header{
     border: solid 2px #0f0;
 }
@@ -738,7 +747,7 @@ header{
 .site-branding{
     text-align: center;
 }
-
+.navbar-brand{text-decoration: none; float: left; font-size: 2.2em; margin-top: -7px; color: #fff; font-weight: bold; }
 .site-title{
     margin: 1.7em 1em 0;
     font-family: 'Fira-Sans', sans-serif;
@@ -754,10 +763,31 @@ header{
     .site-title{
         font-size: 2em;
     }
+    .site-header{
+        width: 100%;
+        height: auto;
+        background-size: 100% auto !important;
+        background-repeat:no-repeat;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .navbar-brand{font-size: 2em; margin-top: -1px;}
+}
+@media screen and (max-width: 40em){
+    .site-header{
+        width: 100%;
+        height: auto;
+        background-size: 100% auto !important;
+    }
+    .navbar-brand{font-size: 2em; margin-top: -2px;}
+}
+@media screen and (max-width: 50em){
+
+    .navbar-brand{font-size: 2em; margin-top: -1px;}
 }
 
 /* Resize Background*/
-@media only screen and (max-width: 800px) {
+/*@media only screen and (max-width: 800px) {
 
     .site-header{
         width: 100%;
@@ -765,6 +795,7 @@ header{
         background-size: 100% auto !important;
     }
 }
+
 @media only screen and (max-width: 650px) {
 
     .site-header{
@@ -775,7 +806,7 @@ header{
         margin-bottom: 0;
         padding-bottom: 0;
     }
-}
+}*/
 
 .site-title a{
     text-decoration: none;
@@ -805,25 +836,29 @@ header{
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+.site-footer { font-size: 0.65em; margin-top: -10px; text-align: center; }
+.site-footer a { text-decoration: none; }
 .site-footer{
     background-color: #FFF;
-    padding:1.25em 3em;
+    padding:1.25em 0;
 }
 
-@media screen and (max-width: 40em){
+@media screen and (max-width: 30em){
     .site-footer{
-        padding: 3em 3em;
-        padding-bottom: 0;
+        font-size: 0.5em;
     }
 }
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#gallery, #statement, #bio, #action, #contact{ width: 100%; }
 /* GALLERY */
 #gallery{
     color: #fff;
     background: #03060B;
+    margin: 0;
+    background-size: cover;
     padding: 2em 0;
 }
 
@@ -831,15 +866,16 @@ header{
 #statement {
     color: #fff;
     background: #192234;
+    margin: 0 auto;
+    overflow: hidden;
     padding: 2em 0;
 }
-
 /* BIOGRAPHY */
 #bio {
     padding: 2em 0;
+background-size: cover;
     background: hsl(0, 0%, 90%);
 }
-
 /* ACTION FIGURE STORY */
 #action {
     padding: 2em 0;
@@ -849,7 +885,9 @@ header{
 /* CONTACT */
 #contact {
     padding: 2em 0;
+    margin: 0 auto;
     background-color: #FFF;
+    background-size: cover;
 }
 /*--------------------------------------------------------------
 # Global
@@ -865,6 +903,9 @@ header{
 .col-md-6{
     margin: 0;
 }*/
+.center { margin: 0 auto; }
+.site-content{ margin: 0 auto;}
+.clear { clear: both; }
 .site-main{
     font-size: 1.2em;
     line-height: 1.6em;
@@ -876,8 +917,11 @@ header{
     font-size: 90%;
     text-align: justify;
 }
-.entry-content > h2{
+.entry-content > h2 {
+    font-weight:normal;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (min-width: 30em){
