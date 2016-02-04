@@ -160,25 +160,36 @@ add_action('wp_enqueue_scripts', 'artfolio_scripts_with_bootstrap');
 add_action('wp_enqueue_scripts', 'artfolio_scripts');
 add_action('wp_enqueue_scripts', 'artfolio_scripts_with_jquery');
 
-function custom_post_type() {
-    $labels = array(
-        'name' => _x('Parallax', 'general name'), 'singular_name' => _x('Page', 'singular name'),
-        'add_new' => _x('Add New', 'parallax'), 'add_new_item' => __('Add New Page'), 'edit_item' => __('Edit Page'),
-        'new_item' => __('New Page'), 'all_items' => __('All Pages'), 'view_item' => __('View Page'),
-        'search_items' => __('Search Pages'), 'not_found' => __('No pages found'),
-        'not_found_in_trash' => __('No pages found in the Trash'), 'parent_item_colon' => '', 'menu_name' => 'Parallax',
-    );
+function get_images_from_media_library() {
     $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'menu_position' => null,
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments', 'page-attributes'),
-        'has_archive' => true,
+        'post_type' => 'attachment',
+        'post_mime_type' => 'image',
+        'post_status' => 'inherit',
+        'posts_per_page' => 5,
+        'orderby' => 'rand'
     );
-    register_post_type('parallax', $args);
+    $query_images = new WP_Query($args);
+    $images = array();
+    foreach ($query_images->posts as $image) {
+        $images[] = $image->guid;
+    }
+    return $images;
 }
 
-add_action('init', 'custom_post_type');
+function display_images_from_media_library() {
+
+    $imgs = get_images_from_media_library();
+    $html = '<div id="media-gallery">';
+
+    foreach ($imgs as $img) {
+
+        $html .= '<img src="' . $img . '" alt="" />';
+    }
+
+    $html .= '</div>';
+
+    return $html;
+}
 
 /**
  * Implement the Custom Header feature.

@@ -46,6 +46,9 @@
                                     <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
                                 <?php endif; ?>
                             </div><!-- .site-branding -->
+                            
+                                <?php echo display_images_from_media_library(); ?>
+                            
                             <nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-controls="primary-menu" aria-expanded="false" aria-hidden="true">
