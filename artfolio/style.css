@@ -62,7 +62,6 @@ html {
 
 body{
     margin: 0;
-    padding: 0;
     width: 100%;
 }
 
@@ -410,7 +409,18 @@ hr {
 img {
     height: auto; /* Make sure images are scaled correctly. */
     max-width: 100%; /* Adhere to container width. */
+    border: 2px solid #666;
+
 }
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+    margin: 3em;
+}
+.lb-outerContainer { height: auto; /* Make sure images are scaled correctly. */
+                     max-width: 100%; /* Adhere to container width. */ }
+.lb-image{ width:500px; max-height:500px;}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -510,8 +520,6 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-#site-navigation {float: right; margin-top: 20px; }
-
 .main-navigation.sticky-header{
     position: fixed;
     width: 100%;
@@ -731,12 +739,11 @@ a:active {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-header{
+/*header{
     width: 100%;
     height: 80px;
-    position: fixed;
-    margin-top: 30px;
-}
+
+}*/
 
 .site-header{
     border: solid 2px #0f0;
@@ -747,16 +754,23 @@ header{
 .site-branding{
     text-align: center;
 }
-.navbar-brand{text-decoration: none; float: left; font-size: 2.2em; margin-top: -7px; color: #fff; font-weight: bold; }
+.navbar {
+    margin-bottom: 0;
+    vertical-align: central;
+}
+.navbar-brand{text-decoration: none; float: left; font-size: 2.2em; margin-top: -2px; color: #fff; font-weight: bold; }
 .site-title{
     margin: 1.7em 1em 0;
     font-family: 'Fira-Sans', sans-serif;
     font-size:  2.4em;
     font-weight: bold;
     line-height: 1.3em;
-    color: #FFF;
+    /*    color: #FFF;*/
     text-transform: uppercase;
     word-break: break-all;
+}
+.site-description{
+    background-color: #000;
 }
 
 @media screen and (max-width: 30em){
@@ -782,9 +796,14 @@ header{
     .navbar-brand{font-size: 2em; margin-top: -2px;}
 }
 @media screen and (max-width: 50em){
-
     .navbar-brand{font-size: 2em; margin-top: -1px;}
 }
+@media screen and (min-width: 40em){
+    .navbar {
+        margin-bottom: -30px;
+    }
+}
+    
 
 /* Resize Background*/
 /*@media only screen and (max-width: 800px) {
@@ -852,20 +871,31 @@ header{
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-#gallery, #statement, #bio, #action, #contact{ width: 100%; }
+#row1{background-color: #192234;}
+#row3{background-color: #FFF;}
+#gallery, #statement, #bio, #action, #contact{ width: 100%;}
 /* GALLERY */
 #gallery{
     color: #fff;
     background: #03060B;
-    margin: 0;
-    background-size: cover;
     padding: 2em 0;
+    height: 300px;
+margin: 0 auto;
+overflow: hidden;
+height: 100%;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+    
 }
 
 /* STATEMENT */ 
 #statement {
     color: #fff;
-    background: #192234;
     margin: 0 auto;
     overflow: hidden;
     padding: 2em 0;
@@ -873,36 +903,76 @@ header{
 /* BIOGRAPHY */
 #bio {
     padding: 2em 0;
-background-size: cover;
+    background-size: cover;
     background: hsl(0, 0%, 90%);
 }
+
+/*#bg{
+    background: url(http://localhost/yeo/wp-content/uploads/2016/01/mahm.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  Set rules to fill background 
+  min-height: 100%;
+  min-width: 1024px;
+        
+   Set up proportionate scaling 
+  width: 100%;
+  height: auto;
+        
+   Set up positioning 
+  top: 0;
+  left: 0;
+}*/
+
 /* ACTION FIGURE STORY */
 #action {
     padding: 2em 0;
-    background-color: #FFF;
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+#action p{
+    color: #000000;
 }
 
 /* CONTACT */
 #contact {
     padding: 2em 0;
     margin: 0 auto;
-    background-color: #FFF;
-    background-size: cover;
 }
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
-/*.container-fluid{
-    margin-bottom: -25px;
-    padding:20px;
-}*/
+.container-fluid{
+    background-size: cover;
+    padding: 0;
+    overflow-x:hidden;
+}
 /*.container{
     padding: 0;
     margin: 0 auto;
 }
+*/
+
+.well{
+    margin: 0;
+    padding: 0;
+    -khtml-opacity:1; 
+    -moz-opacity:1; 
+    -ms-filter:”alpha(opacity=100)”;
+    filter:alpha(opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    opacity:1;
+}
+.well .well-lg{
+    background-size: cover;
+}
 .col-md-6{
     margin: 0;
-}*/
+    padding: 0;
+    max-height: fit-content; 
+}
 .center { margin: 0 auto; }
 .site-content{ margin: 0 auto;}
 .clear { clear: both; }
@@ -911,8 +981,8 @@ background-size: cover;
     line-height: 1.6em;
 }
 .entry-content{
-    margin:2em;
-    padding:2em 2em;
+    margin:0;
+    padding:0;
     font-family:    "Fira Sans", sans-serif;
     font-size: 90%;
     text-align: justify;
@@ -929,6 +999,23 @@ background-size: cover;
 }
 @media screen and (min-width: 40em){
     .site-main{font-size: 1.5em;}
+    .well{
+        margin: 2em 3em;
+        padding: 0;
+        -khtml-opacity:.50; 
+        -moz-opacity:.50; 
+        -ms-filter:”alpha(opacity=50)”;
+        filter:alpha(opacity=50);
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+        opacity:.50;
+    }
+    .entry-content{
+        margin:2em;
+        padding:2em 2em;
+        font-family:    "Fira Sans", sans-serif;
+        font-size: 90%;
+        text-align: justify;
+    }
 }
 @media screen and (min-width: 57em){
     .site-main{margin: 1.8em auto;}
@@ -952,26 +1039,39 @@ background-size: cover;
 .single .byline,
 .group-blog .byline {
     display: inline;
-}
+}*/
 
 .page-content,
 .entry-content,
 .entry-summary {
-    margin: 1.5em 0 0;
+    margin:0 2.9em;
 }
+/*
+@media screen and (min-width: 22em){
+    .entry-content .gallery {
+            margin-left: 2.4em;
+    }
+}
+@media screen and (min-width: 40em){
+        .page-content,
+    .entry-content,
+    .entry-summary {
+        border: 1px solid #0f0;
+    }
+}*/
 
 .page-links {
     clear: both;
     margin: 0 0 1.5em;
-}*/
+}
 
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
-/*.blog .format-aside .entry-title,
+.blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
     display: none;
-}*/
+}
 
 /*--------------------------------------------------------------
 ## Comments
@@ -986,7 +1086,7 @@ background-size: cover;
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-/*.page-content .wp-smiley,
+.page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
     border: none;
@@ -995,17 +1095,17 @@ background-size: cover;
     padding: 0;
 }
 
- Make sure embeds and iframes fit their containers. 
+/* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
     max-width: 100%;
-}*/
+}
 
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
-/*.wp-caption {
+.wp-caption {
     margin-bottom: 1.5em;
     max-width: 100%;
 }
@@ -1022,17 +1122,18 @@ object {
 
 .wp-caption-text {
     text-align: center;
-}*/
+}
 
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
 .gallery {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.6em;
 }
 
 .gallery-item {
     display: inline-block;
+    padding: 1.79104477%;
     text-align: center;
     vertical-align: top;
     width: 100%;
@@ -1070,8 +1171,26 @@ object {
     max-width: 11.11%;
 }
 
+.gallery-icon img {
+    margin: 0 auto;
+}
+
 .gallery-caption {
+    color: #707070;
+    color: #FFF;
     display: block;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: 0.5em 0;
+}
+
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+    display: none;
 }
 
 /*Code not needed*/

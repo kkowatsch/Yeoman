@@ -1,0 +1,12 @@
+/* CSS Document */
+
+.gallery .myGalleryItem{display: inline-block; margin: 3px 5px;}
+.gallery .myGalleryItem img{width: 90px !important;height: 90px !important;}
+.gallery .myGalleryItem span{display: none;}
+
+@media screen and (min-width: 50em){
+    .gallery .myGalleryItem img{width: 150px !important;height: 150px !important;}
+}
+
+
+

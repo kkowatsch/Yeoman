@@ -121,7 +121,7 @@ function artfolio_scripts() {
 
     wp_enqueue_script('artfolio-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 
-    wp_enqueue_script('artfolio-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '20150130', true);
+    wp_enqueue_script('artfolio-custom', get_template_directory_uri() . '/js/custom.js', array(''), '20150130', true);
 
     wp_enqueue_script('artfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true);
     wp_localize_script('artfolio-navigation', 'screenReaderText', array(
@@ -151,8 +151,6 @@ function artfolio_scripts_with_jquery() {
         wp_register_script('custom-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array('jquery'));
 // For either a plugin or a theme, you can then enqueue the script:
         wp_enqueue_script('custom-script');
-        wp_enqueue_script('parallax', get_template_directory_uri() . '/js/jquery.parallax-1.1.3.js', array(), '1.1.3', true);
-        wp_enqueue_script('nicescroll', get_template_directory_uri() . '/js/jquery.nicescroll.min.js', array(), '3.5.1', true);
     }
 }
 
@@ -165,7 +163,7 @@ function get_images_from_media_library() {
         'post_type' => 'attachment',
         'post_mime_type' => 'image',
         'post_status' => 'inherit',
-        'posts_per_page' => 5,
+        'posts_per_page' => 1,
         'orderby' => 'rand'
     );
     $query_images = new WP_Query($args);
@@ -179,7 +177,7 @@ function get_images_from_media_library() {
 function display_images_from_media_library() {
 
     $imgs = get_images_from_media_library();
-    $html = '<div id="media-gallery">';
+    $html = '<div id="media-gallery" class="img-fluid">';
 
     foreach ($imgs as $img) {
 
@@ -215,3 +213,7 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+include (TEMPLATEPATH . '/myGallery/gallery_functions_include.php');
+
+
