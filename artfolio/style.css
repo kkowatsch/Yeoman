@@ -573,56 +573,56 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation.sticky-header{
+/*.navbar.sticky-header{
     position: fixed;
     width: 100%;
     z-index: 100;
     top: 0;
     left: 0;
-}
-.shifted{
+}*/
+/*.shifted{
     margin-top: 54px;
-}
-.main-navigation {
+}*/
+.navbar {
     clear: both;
     width: 100%;
     padding:0 2em;
 }
-.main-navigation ul {
+.navbar ul {
     display: none;
     list-style: none;
     margin: 0;
     padding-left: 0;
 }
-.main-navigation a {
+.navbar a {
     display: block;
     padding: 0.8em 0;
     position: relative;
     text-decoration: none;
 }
-.main-navigation ul {
+.navbar ul {
     list-style: none;
     margin: 0;
 }
-.main-navigation li {
+.navbar li {
     border-top: 1px solid #eaeaea;
     border-top: 1px solid rgba(51, 51, 51, 0.1);
     position: relative;
     padding: 0 1.25em;
     padding-top: 0;
 }
-.main-navigation .current-menu-item > a,
-.main-navigation .current-menu-ancestor > a {
+.navbar .current-menu-item > a,
+.navbar .current-menu-ancestor > a {
     font-weight: 700;
 }
-.main-navigation .nav-menu > ul > li:first-child,
-.main-navigation .nav-menu > li:first-child {
+.navbar .nav-menu > ul > li:first-child,
+.navbar .nav-menu > li:first-child {
     border-top: 0;
 }
-.main-navigation .menu-item-has-children > a {
+.navbar .menu-item-has-children > a {
     padding-right: 48px;
 }
-.main-navigation .menu-item-description {
+.navbar .menu-item-description {
     font-family: "Noto Sans", sans-serif;
     font-size: 12px;
     font-size: 1.2rem;
@@ -633,18 +633,18 @@ a:active {
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.navbar.toggled ul {
     display: block;
 }
 @media screen and (min-width: 48em) {
-    .main-navigation ul {display: block;}
+    .navbar ul {display: block;}
 }
 
 /*Horizontal menu on Wide Screen*/ 
 @media screen and (min-width: 48em) {
     /*     Position the menu in the header */
-    .main-navigation,
-    .main-navigation.toggled{
+    .navbar,
+    .navbar.toggled{
         position: relative;
         min-height: 3.5em;
         margin: 0 auto;
@@ -654,28 +654,28 @@ a:active {
         padding-left: 0;
         text-align: right;
     }
-    .main-navigation.toggled ul{
+    .navbar.toggled ul{
         max-height: calc(100vh - 8em);
         overflow-y: visible; 
     }
-    .main-navigation li{
+    .navbar li{
         display: inline-block;
         border: none;
     }
-    .main-navigation li li{
+    .navbar li li{
         display: block;
         text-align: left;
     }
-    .main-navigation a,
-    .main-navigation ul ul li:last-child a{
+    .navbar a,
+    .navbar ul ul li:last-child a{
         border-bottom: none;
     }
-    .main-navigation a:hover,
-    .main-navigation a:focus{
+    .navbar a:hover,
+    .navbar a:focus{
         background: transparent;
     }
-    .main-navigation li li a:hover,
-    .main-navigation li li a:focus{
+    .navbar li li a:hover,
+    .navbar li li a:focus{
         text-decoration: none;
     }
 }
@@ -946,6 +946,16 @@ site-branding p{
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#primary{
+    padding: 1em 2em 2em;
+}
+
+@media screen and (max-width: 40em){
+    #primary{
+        padding: 1em 1em 0;
+    }
+}
+
 #row1{background-color: #192234;}
 #row3{background-image:url('\images\contact-bg.png') center center fixed;}
 #gallery, #statement, #bio, #action, #contact{ width: 100%;}

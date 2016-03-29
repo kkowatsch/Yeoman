@@ -103,7 +103,6 @@ function artfolio_scripts() {
 //Add Font Awesome icons (http://fontawesome.io)
     wp_enqueue_style('artfolio-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
     wp_enqueue_script('artfolio-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js');
-    wp_enqueue_script('artfolio-custom', get_template_directory_uri() . '/js/custom.js', array(''), '20150130', true);
     wp_enqueue_script('artfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true);
     wp_localize_script('artfolio-navigation', 'screenReaderText', array(
         'expand' => '<span class="screen-reader-text">' . __('expand child menu', 'artfolio') . '</span>',
