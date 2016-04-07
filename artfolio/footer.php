@@ -9,10 +9,8 @@
  * @package artfolio
  */
 ?>
-</div>
-
-<hr>
-<footer id="colophon" class="site-footer" role="contentinfo">
+<footer id="colophon" class="site-footer navbar-fixed-bottom" role="contentinfo">
+    <hr>
     <div class="site-info">
         <a href="http://kkowatsch.github.io/WebPortfolio/">&copy; KayKo Designs ~ <?php echo date("Y") ?></a>
     </div><!-- .site-info -->

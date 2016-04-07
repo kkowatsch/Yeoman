@@ -174,4 +174,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-include (TEMPLATEPATH . '/myGallery/gallery_functions_include.php');
