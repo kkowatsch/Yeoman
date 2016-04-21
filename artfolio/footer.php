@@ -15,6 +15,8 @@
         <a href="http://kkowatsch.github.io/WebPortfolio/">&copy; KayKo Designs ~ <?php echo date("Y") ?></a>
     </div><!-- .site-info -->
 </footer><!-- #colophon -->
+</div>
+</div>
 </div><!-- #primary -->
 </div><!-- #content -->
 </div><!-- #page -->

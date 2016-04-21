@@ -41,12 +41,9 @@
                     </div><!--.navbar-header-->
                     <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu')); ?>
                 </nav><!-- #site-navigation -->
-                <div class="slideshow">
-                    <?php
-                    echo do_shortcode("[metaslider id=1762]");
-                    ?>
-                </div>
             </header><!-- #masthead -->
 
             <div id="content">
-                <div id="primary" class="container-fluid">
+                <div id="primary" class="container">
+                    <div class="well well-lg">
+                        <div class="entry-content">
