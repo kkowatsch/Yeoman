@@ -39,7 +39,9 @@
                         </button>
                         <a class = "navbar-brand" href = "<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
                     </div><!--.navbar-header-->
-                    <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu')); ?>
+                    <div id="main-nav">
+                        <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_id' => 'primary-menu')); ?>
+                    </div>
                 </nav><!-- #site-navigation -->
             </header><!-- #masthead -->
 

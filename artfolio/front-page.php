@@ -69,7 +69,7 @@
                                                 <p class="excerpt"><a href="<?php the_permalink() ?>"><?php echo get_the_excerpt(); ?></a></p>
                                             </div>
                                         </li>
-                                    </div><!--col-md-4-->
+                                    </div><!--6-->
                                     <?php
                                     $i++;
                                     if ($i != 0 && $i % 2 == 0) {
