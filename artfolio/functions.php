@@ -51,8 +51,8 @@ if (!function_exists('artfolio_setup')) :
         add_theme_support('html5', array(
             'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
         ));
-        
-       add_filter( 'use_default_gallery_style', '__return_false' );
+
+        add_filter('use_default_gallery_style', '__return_false');
         /*
          * Enable support for Post Formats.
          * See https://developer.wordpress.org/themes/functionality/post-formats/
@@ -121,6 +121,31 @@ function artfolio_scripts() {
     }
 }
 
+function artfolio_scripts_with_colorbox() {
+
+    //Colorbox stylesheet
+    wp_enqueue_style('colorbox-css', get_template_directory_uri() . '/colorbox/colorbox.css');
+
+    //Colorbox jQuery plugin js file
+    wp_enqueue_script('colorbox', get_template_directory_uri() . '/colorbox/jquery.colorbox-min.js', array('jquery'), '', true);
+
+    //Add main.js file
+    wp_enqueue_script('colorbox-init', get_template_directory_uri() . '/colorbox/colorbox-init.js', array('colorbox'), '', true);
+
+    //Make the Colorbox text translation-ready
+    $current = 'current';
+    $total = 'total';
+    wp_localize_script('colorbox', 'artfolio_script_vars', array(
+        'current' => sprintf(__('image {%1$s} of {%2$s}', 'artfolio'), $current, $total),
+        'previous' => __('previous', 'artfolio'),
+        'next' => __('next', 'artfolio'),
+        'close' => __('close', 'artfolio'),
+        'xhrError' => __('This content failed to load.', 'artfolio'),
+        'imgError' => __('This image failed to load.', 'artfolio')
+            )
+    );
+}
+
 function artfolio_scripts_with_bootstrap() {
     if (is_front_page()) {
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
@@ -140,6 +165,7 @@ function artfolio_scripts_with_jquery() {
 add_action('wp_enqueue_scripts', 'artfolio_scripts_with_bootstrap');
 add_action('wp_enqueue_scripts', 'artfolio_scripts');
 add_action('wp_enqueue_scripts', 'artfolio_scripts_with_jquery');
+add_action('wp_enqueue_scripts', 'artfolio_scripts_with_colorbox');
 
 function enqueue_filterable() {
     wp_register_script('filterable', get_template_directory_uri() . '/js/filterable.js', array('jquery'));
@@ -168,7 +194,7 @@ function display_images_from_media_library() {
     $imgs = get_images_from_media_library();
     $html = '<div id="media-gallery">';
     foreach ($imgs as $img) {
-            $html .= '<img class="img-fluid img-rounded" src="' . $img . '" alt="" />';
+        $html .= '<img class="img-fluid img-rounded" src="' . $img . '" alt="" />';
     }
     $html .= '</div>';
     return $html;
