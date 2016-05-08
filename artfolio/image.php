@@ -11,6 +11,8 @@ get_header();
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+        <div class="container">
+            <div class="well well-lg" style="min-height:1005px; text-align: center;">
 
         <?php
         // Start the loop.
@@ -21,14 +23,14 @@ get_header();
 
                 <nav id="image-navigation" class="navigation image-navigation">
                     <div class="nav-links">
-                        <div class="nav-previous"><?php previous_image_link(false, __('Previous Image', 'artfolio')); ?></div><div class="nav-next"><?php next_image_link(false, __('Next Image', 'artfolio')); ?></div>
+                        <div class="nav-previous" style="float: left;"><?php previous_image_link(false, __('Previous Image', 'artfolio')); ?></div><div class="nav-next" style="float: right;"><?php next_image_link(false, __('Next Image', 'artfolio')); ?></div>
                     </div><!-- .nav-links -->
                 </nav><!-- .image-navigation -->
 
                 <header class="entry-header">
                     <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
                 </header><!-- .entry-header -->
-
+<div class="col-md-12" style="margin-left:15%;">
                 <div class="entry-content">
 
                     <div class="entry-attachment">
@@ -45,14 +47,10 @@ get_header();
                         echo wp_get_attachment_image(get_the_ID(), $image_size);
                         ?>
 
-                        <?php if (has_excerpt()) : ?>
-                            <div class="entry-caption">
-                                <?php the_excerpt(); ?>
-                            </div><!-- .entry-caption -->
-                        <?php endif; ?>
+ 
 
                     </div><!-- .entry-attachment -->
-
+                </div>
                     <?php
                     the_content();
                     wp_link_pages(array(
@@ -86,7 +84,8 @@ get_header();
         // End the loop.
         endwhile;
         ?>
-
+        </div>
+        </div>
     </main><!-- .site-main -->
 </div><!-- .content-area -->
 
