@@ -1,143 +1,126 @@
 <?php
-/**
- * This is the custom template for the one-page style of the theme artfolio.
- *
+/*
+  Template Name: Portfolio 2 Columns
+ * 
  * @package artfolio
  */
-get_header();
 ?>
 
+<?php get_header(); ?>
 
-<main id="main" class="site-main" role="main">
-    <div class="container-fluid">
-        <!--This is the section for the gallery of paintings (for now there is one genre but later there may be sub-genres under the genre)-->	
-        <section id="gallery">	
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="jumbotron">
+        <div class="gallery">
+            <div class="image">
+                <?php do_action('slideshow_deploy', '1847'); ?>
+                <div class="wrap">
+                    <h1><?php bloginfo('name'); ?></h1>
+                    <span><?php $description = get_bloginfo('description', 'display'); ?>
+                        <?php echo $description;
+                        ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <header class="entry-header">
+                <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+            </header><!-- .entry-header -->
             <?php
-            $query = new WP_Query(array('pagename' => 'gallery'));
-            if ($query->have_posts()) {
-                while ($query->have_posts()) {
-                    $query->the_post();
-                    echo '<div class="entry-content">';
-                    the_content();
-                    echo '</div>';
-                }
-            }
-            wp_reset_postdata();
-            ?>	
-        </section>
+            $loop = new WP_Query(array('post_type' => 'project', 'posts_per_page' => -1));
+            $count = 0;
+            ?>
 
-        <!--This is the section for the biography-->
-        <section id="bio">
-            <?php
-            $query = new WP_Query(array('pagename' => 'bio'));
-            if ($query->have_posts()) {
-                while ($query->have_posts()) {
-                    $query->the_post();
-                    echo '<div class="entry-content">';
-                    the_content();
-                    echo '</div>';
-                }
-            }
-            wp_reset_postdata();
-            ?>	
-        </section>
-    </div>
-    <div id="bg" class="container">
-        <div class="well well-lg">
-            <!--This is the section for the action story-->
-            <section id="action">
-                <p>
-                    <?php
-                    $query = new WP_Query(array('pagename' => 'actionstory'));
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            echo '<div class="entry-content">';
-                            the_content();
-                            echo '</div>';
-                        }
-                    }
-                    wp_reset_postdata();
-                    ?>
-                </p>
-            </section>
+            <div class="container">
+                <div id="portfolio-wrapper"  class="col-lg-12">
+                    <ul id="portfolio-list">
+
+                        <?php
+                        if ($loop) :
+                            $i = 0;
+                            while ($loop->have_posts()) : $loop->the_post();
+                                if ($i % 2 == 0) {
+                                    ?> 
+                                    <div class="row">
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="col-md-6">
+
+                                        <?php
+                                        $terms = get_the_terms($post->ID, 'tagportfolio');
+
+                                        if ($terms && !is_wp_error($terms)) :
+                                            $links = array();
+
+                                            foreach ($terms as $term) {
+                                                $links[] = $term->name;
+                                            }
+                                            $links = str_replace(' ', '-', $links);
+                                            $tax = join(" ", $links);
+                                        else :
+                                            $tax = '';
+                                        endif;
+                                        ?>
+
+                                        <?php $infos = get_post_custom_values('_url'); ?>
+
+                                        <li class="portfolio-item <?php echo strtolower($tax); ?> all">
+                                            <div id="wrap" class="well well-sm">
+                                                <div class="thumb"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail(array(400, 160)); ?></a></div>
+                                                <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+                                                <p class="excerpt"><a href="<?php the_permalink() ?>"><?php echo get_the_excerpt(); ?></a></p>
+                                            </div>
+                                        </li>
+                                    </div><!--6-->
+                                    <?php
+                                    $i++;
+                                    if ($i != 0 && $i % 2 == 0) {
+                                        ?>
+                                    </div><!--/.row-->
+                                    <div class="clearfix"></div>
+
+                                    <?php
+                                }
+                                ?>
+
+                                <?php
+                            endwhile;
+                        else:
+                            ?>
+
+                            <li class="error-not-found">Sorry, no portfolio entries for while.</li>
+
+                        <?php endif; ?>
+
+
+                    </ul>
+
+                    <div class="clearboth"></div>
+
+                </div> <!-- end #portfolio-wrapper-->
+            </div>
         </div>
+        <script>
+            jQuery(document).ready(function () {
+                jQuery("#portfolio-list").filterable();
+            });
+        </script> 
     </div>
 
-    <div class="container-fluid">
-        <div id="row1" class="row">
-            <div class="col-md-6">
-                <!--This is the section for the artist statement-->
-                <section id="statement">
-                    <?php
-                    $query = new WP_Query(array('pagename' => 'artist-statement'));
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            echo '<div class="entry-content">';
-                            the_content();
-                            echo '</div>';
-                        }
-                    }
-                    wp_reset_postdata();
-                    ?>	
-                </section>
-            </div>
-            <div class="col-md-6">
-                <?php
-                if (is_mobile()) {
-                    echo "I'm not a mobile browser.";
-                }
-                /**
-                 *
-                 * Test for the negative (it's not a mobile browser) - if wp_is_mobile is false, then do something
-                 * else do some other thing.
-                 */
-                if (!is_mobile()) {
-                    echo display_images_from_media_library();
-                } else {
-                    echo "Full of Mobile Goodness.";
-                }
-                ?>
-            </div>
-        </div>
-        <div id="row3" class="row">
-            <div class="col-md-6">
-                <?php
-                if (is_mobile()) {
-                    echo "I'm not a mobile browser.";
-                }
-                /**
-                 *
-                 * Test for the negative (it's not a mobile browser) - if wp_is_mobile is false, then do something
-                 * else do some other thing.
-                 */
-                if (!is_mobile()) {
-                    echo display_images_from_media_library();
-                } else {
-                    echo "Full of Mobile Goodness.";
-                }
-                ?>
-            </div>
-            <div class="col-md-6">
-                <!--This is the section for the contact form-->
-                <section id="contact">
-                    <?php
-                    $query = new WP_Query(array('pagename' => 'contact-us'));
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            echo '<div class="entry-content">';
-                            the_content();
-                            echo '</div>';
-                        }
-                    }
-                    wp_reset_postdata();
-                    ?>
-                </section>
-            </div>
-        </div>
-    </div>
-</main><!-- #main -->
+
+    <footer class="entry-footer">
+        <?php
+        edit_post_link(
+                sprintf(
+                        /* translators: %s: Name of current post */
+                        esc_html__('Edit %s', 'artfolio'), the_title('<span class="screen-reader-text">"', '"</span>', false)
+                ), '<span class="edit-link">', '</span>'
+        );
+        ?>
+    </footer><!-- .entry-footer -->
+
+
+</article>
 
 <?php get_footer(); ?>
